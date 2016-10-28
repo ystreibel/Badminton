@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "day": "Lundi",
+    "start": "12h",
+    "end": "14h",
+    "hallId": 1
+  },
+  {
+    "id": 2,
+    "day": "Lundi",
+    "start": "18h",
+    "end": "20h45",
+    "hallId": 1
+  },
+  {
+    "id": 3,
+    "day": "Jeudi",
+    "start": "20h",
+    "end": "23h",
+    "hallId": 1
+  },
+  {
+    "id": 4,
+    "day": "Samedi",
+    "start": "9h",
+    "end": "11h",
+    "hallId": 1
+  },
+  {
+    "id": 5,
+    "day": "Dimanche",
+    "start": "14h",
+    "end": "18h",
+    "hallId": 1
+  }
+]

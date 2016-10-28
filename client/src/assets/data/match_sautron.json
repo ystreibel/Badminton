@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "day": 1,
+    "date": 1476986400,
+    "local": "BALT Thouaré - MA 6",
+    "visitor": "Sautron - MA 3",
+    "local_score": null,
+    "visitor_score": null,
+    "season": 2016,
+    "division": 6
+  },
+  {
+    "id": 3,
+    "day": 2,
+    "date": 1476986400,
+    "local": "Sautron - MA 3",
+    "visitor": "ALPAC St Joseph de Porterie - MA 1",
+    "local_score": null,
+    "visitor_score": null,
+    "season": 2016,
+    "division": 6
+  },
+  {
+    "id": 6,
+    "day": 3,
+    "date": 1476986400,
+    "local": "Sautron - MA 3",
+    "visitor": "Haute-Goulaine - MA 2",
+    "local_score": null,
+    "visitor_score": null,
+    "season": 2016,
+    "division": 6
+  },
+  {
+    "id": 10,
+    "day": 5,
+    "date": 1476986400,
+    "local": "AL Badminton Malville - MA 2",
+    "visitor": "Sautron - MA 3",
+    "local_score": null,
+    "visitor_score": null,
+    "season": 2016,
+    "division": 6
+  },
+  {
+    "id": 11,
+    "day": 6,
+    "date": 1476986400,
+    "local": "Sautron - MA 3",
+    "visitor": "BALT Thouaré - MA 6",
+    "local_score": null,
+    "visitor_score": null,
+    "season": 2016,
+    "division": 6
+  },
+  {
+    "id": 13,
+    "day": 7,
+    "date": 1476986400,
+    "local": "ALPAC St Joseph de Porterie - MA 1",
+    "visitor": "Sautron - MA 3",
+    "local_score": null,
+    "visitor_score": null,
+    "season": 2016,
+    "division": 6
+  },
+  {
+    "id": 16,
+    "day": 8,
+    "date": 1476986400,
+    "local": "Haute-Goulaine - MA 2",
+    "visitor": "Sautron - MA 3",
+    "local_score": null,
+    "visitor_score": null,
+    "season": 2016,
+    "division": 6
+  },
+  {
+    "id": 20,
+    "day": 10,
+    "date": 1476986400,
+    "local": "Sautron - MA 3",
+    "visitor": "AL Badminton Malville - MA 2",
+    "local_score": null,
+    "visitor_score": null,
+    "season": 2016,
+    "division": 6
+  }
+]
