@@ -48,6 +48,11 @@ import {DetailsPage} from "../pages/details/details";
     AboutPage,
     TabsPage
   ],
-  providers: [TeamService, ScheduleService, RankService, MatchService]
+  providers: [
+    TeamService,
+    ScheduleService,
+    RankService,
+    MatchService
+  ]
 })
 export class AppModule {}

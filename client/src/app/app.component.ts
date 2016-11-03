@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import {Nav, Platform, AlertController} from 'ionic-angular';
-import {StatusBar, Splashscreen, Push} from 'ionic-native';
+import {StatusBar, Push, Splashscreen} from 'ionic-native';
 
 import { HorairesPage } from '../pages/horaires/horaires';
 import { ContactsPage } from '../pages/contacts/contacts';
