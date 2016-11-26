@@ -7,7 +7,7 @@ import { ContactsPage } from '../pages/contacts/contacts';
 import { AboutPage } from '../pages/about/about';
 
 import { TabsPage } from '../pages/tabs/tabs';
-import {DetailsPage} from "../pages/details/details";
+import {MatchDetailsPage} from "../pages/match-details/match-details";
 
 
 @Component({
@@ -71,7 +71,7 @@ export class MyApp {
               text: 'View',
               handler: () => {
                 //TODO: Your logic here
-                self.nav.push(DetailsPage, {message: data.message});
+                self.nav.push(MatchDetailsPage, {message: data.message});
               }
             }]
           });
@@ -79,7 +79,7 @@ export class MyApp {
         } else {
           //if user NOT using app and push notification comes
           //TODO: Your logic on click of push notification directly
-          self.nav.push(DetailsPage, {message: data.message});
+          self.nav.push(MatchDetailsPage, {message: data.message});
           console.log("Push notification clicked");
         }
       });

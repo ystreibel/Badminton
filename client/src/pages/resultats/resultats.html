@@ -10,8 +10,8 @@
 
 <ion-content padding>
   <ion-list-header>Saison 2016</ion-list-header>
-  <ion-card *ngFor="let p of matchs | orderBy: ['-date']">
-    <ion-item-group *ngIf="p.local_score != null">
+  <ion-card *ngFor="let p of matchs">
+    <ion-item-group *ngIf="p.local_score !== null">
       <ion-item-divider light>{{p.date | date:'d MMMM y'}}</ion-item-divider>
       <ion-row center text-center>
         <ion-col width-10><ion-icon name="{{p.local == 'Sautron' ? 'home' : 'car'}}"></ion-icon></ion-col>

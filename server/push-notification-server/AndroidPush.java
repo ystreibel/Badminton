@@ -8,8 +8,8 @@ public class AndroidPush {
      * Replace SERVER_KEY with your SERVER_KEY generated from FCM
      * Replace DEVICE_TOKEN with your DEVICE_TOKEN
      */
-    private static String SERVER_KEY = "YOUR_SERVER_KEY";
-    private static String DEVICE_TOKEN = "YOUR_DEVICE_TOKEN";
+    private static String SERVER_KEY = "AIzaSyAuw-sR3gyNV2l4STQVyIbvz-rD9sHwbQ4";
+    private static String DEVICE_TOKEN = "deHq9zuhn0c:APA91bGoIAFIU01L8nc-aSjinm7oNFmxzUbn3PbNP1vYj1cdU3DSIJd_GwiC8u8tb3NKdSzRGkOJVom-Q04n6usmOTORB9rgywnpa0u2W9-a_-Npb3x_ji3qfCZTD3o5PNAYgArvTPH9";
 
 
     /**

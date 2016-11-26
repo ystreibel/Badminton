@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {NavController} from 'ionic-angular';
 import {Match} from "../../models/match";
 import {MatchService} from "../../providers/match-service";
+import {MatchDetailsPage} from "../match-details/match-details";
 
 /*
   Generated class for the Calendrier page.
@@ -14,18 +15,21 @@ import {MatchService} from "../../providers/match-service";
   templateUrl: 'calendrier.html'
 })
 export class CalendrierPage {
-
   nextMatch: Match[];
   nextMatchs: Match[];
 
+  matchDetailsPage: any;
+
   constructor(public navCtrl: NavController, public matchService: MatchService) {
+    this.matchDetailsPage = MatchDetailsPage;
+
     matchService.load('Sautron').subscribe(matchs => {
         matchs = matchs.filter(match => match.local_score === null);
 
         matchs.sort(function (a, b) {
-          return a.date-b.date;
+          return a.day-b.day;
         });
-        matchs.forEach(match => match.date = match.date * 1000);
+        matchs.forEach(match => match.date !== null ? match.date = match.date * 1000 : match.date = null);
         this.nextMatch = matchs.slice(0, 1);
         this.nextMatchs = matchs.splice(1);
         },

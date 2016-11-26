@@ -15,12 +15,12 @@ import {TeamService} from "../providers/team-service";
 import {ScheduleService} from "../providers/schedule-service";
 import {RankService} from "../providers/rank-service";
 import {MatchService} from "../providers/match-service";
-import {DetailsPage} from "../pages/details/details";
+import {MatchDetailsPage} from "../pages/match-details/match-details";
 
 @NgModule({
   declarations: [
     MyApp,
-    DetailsPage,
+    MatchDetailsPage,
     MonEquipePage,
     CalendrierPage,
     ResultatsPage,
@@ -38,7 +38,7 @@ import {DetailsPage} from "../pages/details/details";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    DetailsPage,
+    MatchDetailsPage,
     MonEquipePage,
     CalendrierPage,
     ResultatsPage,
