@@ -14,7 +14,7 @@
     <ion-item-group *ngIf="p.local_score !== null">
       <ion-item-divider light>{{p.date | date:'d MMMM y'}}</ion-item-divider>
       <ion-row center text-center>
-        <ion-col width-10><ion-icon name="{{p.local == 'Sautron' ? 'home' : 'car'}}"></ion-icon></ion-col>
+        <ion-col width-10><ion-icon name="{{p.local == 'Sautron - MA 3' ? 'home' : 'car'}}"></ion-icon></ion-col>
         <ion-col width-33><h2>{{p.local}}</h2></ion-col>
         <ion-col width-23>{{p.local_score + '-' + p.visitor_score}}</ion-col>
         <ion-col width-33><h2>{{p.visitor}}</h2></ion-col>
