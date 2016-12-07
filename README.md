@@ -15,6 +15,7 @@
 - [ ] Calendar - Match details UI - Organize data
 - [ ] Calendar - Match details UI - Validate match details when is finished for administrator
 - [ ] Calendar - Match details UI for next match - Add google maps to destination
+- [ ] Contact - Add hall code
 - [ ] Results - Navigation on match details
 - [ ] Push notifications, Dynamic messages
 - [ ] User profile
