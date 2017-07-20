@@ -1,0 +1,286 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: UFOLEP Badminton API
+# during dev, should point to your local machine
+host: localhost:10010
+# basePath prefixes all resource paths 
+basePath: /
+# 
+schemes:
+  # tip: remove http to make production-grade
+  - http
+  - https
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+paths:
+  /teams:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: teams
+    get:
+      description: Returns 'Teams' to the caller
+      # used as the method name of the controller
+      operationId: getTeams
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/TeamsResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    post:
+      description: Create a new team to the list
+      operationId: createTeam
+      parameters:
+        - name: team
+          description: Team properties
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/Team"
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /teams/{id}:
+    x-swagger-router-controller: teams
+    get:
+      description: Get a team
+      operationId: getTeam
+      parameters:
+        - name: id
+          type: string
+          in: path
+          required: true
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/TeamResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"            
+    put:
+      description: Update a team
+      operationId: updateTeam
+      parameters:
+        - name: id
+          description: Team id
+          type: string
+          in: path
+          required: true
+        - name: team
+          description: Team properties
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/Team"
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    delete:
+      description: Delete a team
+      operationId: deleteTeam
+      parameters:
+        - name: id
+          description: Team id
+          type: string
+          in: path
+          required: true
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /swagger:
+    x-swagger-pipe: swagger_raw
+# complex objects have schema definitions
+definitions:
+  Team:
+    properties:
+        name:
+          type: string
+        players: 
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              icon: 
+                type: string
+              firstname:
+                type: string
+              lastname:
+                type: string
+              email: 
+                type: string
+              phone:
+                type: string
+              isCaptain:
+                type: boolean
+        place:
+          type: object
+          properties:
+            name:
+              type: string
+            location:
+              type: object
+              properties:
+                type: 
+                  type: string
+                coordinates:
+                  type: object
+                  properties:
+                    latitude:
+                      type: number
+                    longitude:
+                      type: number
+                category:
+                  type: string
+    required:
+      - name
+      - players
+      - place
+  TeamResponse:
+    properties:
+        id:
+          type: string
+        name:
+          type: string
+        players: 
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              icon: 
+                type: string
+              firstname:
+                type: string
+              lastname:
+                type: string
+              email: 
+                type: string
+              phone:
+                type: string
+              isCaptain:
+                type: boolean
+        place:
+          type: object
+          properties:
+            name:
+              type: string
+            location:
+              type: object
+              properties:
+                type: 
+                  type: string
+                coordinates:
+                  type: object
+                  properties:
+                    latitude:
+                      type: number
+                    longitude:
+                      type: number
+                category:
+                  type: string
+    required:
+      - id
+      - name
+      - players
+      - place      
+  TeamsResponse:
+    required:
+      - teams
+    properties:
+      teams:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+            players: 
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  icon: 
+                    type: string
+                  firstname:
+                    type: string
+                  lastname:
+                    type: string
+                  email: 
+                    type: string
+                  phone:
+                    type: string
+                  isCaptain:
+                    type: boolean
+            place:
+              type: object
+              properties:
+                name:
+                  type: string
+                location:
+                  type: object
+                  properties:
+                    type: 
+                      type: string
+                    coordinates:
+                      type: object
+                      properties:
+                        latitude:
+                          type: number
+                        longitude:
+                          type: number
+                category:
+                  type: string
+  GeneralResponse:
+    type: object
+    properties:
+      success:
+        type: boolean
+        description: returns true if successful
+      description:
+        type: string
+        description: a short operation comment 
+    required:
+      - success
+      - description
+  ErrorResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string
