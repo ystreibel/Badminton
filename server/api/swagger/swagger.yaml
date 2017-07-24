@@ -1,11 +1,11 @@
 swagger: "2.0"
 info:
-  version: "0.0.1"
+  version: "1.0.0"
   title: UFOLEP Badminton API
 # during dev, should point to your local machine
 host: localhost:10010
 # basePath prefixes all resource paths 
-basePath: /
+basePath: /api/v1
 # 
 schemes:
   # tip: remove http to make production-grade
@@ -129,8 +129,6 @@ definitions:
           items:
             type: object
             properties:
-              id:
-                type: string
               icon: 
                 type: string
               firstname:
@@ -168,7 +166,7 @@ definitions:
       - place
   TeamResponse:
     properties:
-        id:
+        _id:
           type: string
         name:
           type: string
@@ -177,7 +175,7 @@ definitions:
           items:
             type: object
             properties:
-              id:
+              _id:
                 type: string
               icon: 
                 type: string
@@ -211,7 +209,7 @@ definitions:
                 category:
                   type: string
     required:
-      - id
+      - _id
       - name
       - players
       - place      
@@ -224,7 +222,7 @@ definitions:
         items:
           type: object
           properties:
-            id:
+            _id:
               type: string
             name:
               type: string
@@ -233,7 +231,7 @@ definitions:
               items:
                 type: object
                 properties:
-                  id:
+                  _id:
                     type: string
                   icon: 
                     type: string

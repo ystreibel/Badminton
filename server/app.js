@@ -2,6 +2,7 @@
 
 var SwaggerExpress = require('swagger-express-mw');
 var app = require('express')();
+var connection = require('./api/models/connection.js');
 module.exports = app; // for testing
 
 var config = {

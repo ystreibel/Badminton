@@ -1,7 +1,7 @@
 'use strict';
 
-const util = require('util'),
-     db = require('../../config/db')();
+var mongoose = require('mongoose');
+const Team = require('../models/team');
 
 module.exports = {
     getTeams: getTeams,
@@ -12,40 +12,65 @@ module.exports = {
 };
 
 function getTeams(req, res) {
-    res.json({ teams: db.find()});
+    Team.find({}, function(err, teams) {
+        if (err) {
+            res.send(err);
+        }
+        res.json({ teams: teams});
+    });
 }
 
 function createTeam(req, res) {
-    res.json({success: db.save(req.body), description: "Team added to the list!"});
+    var team = new Team(req.body);
+    team.save(err => {
+        if (err) {
+            res.send({success: false, description: err});
+        }
+        res.json({success: true, description: "Team added to the list!"});
+    });
+
 }
 
 function getTeam(req, res) {
     var id = req.swagger.params.id.value;
-    var team = db.find(id);
-    if(team) {
+    Team.find({ _id: mongoose.Types.ObjectId(id) }, function(err, team) {
+        if (err) {
+            res.send(err);
+        }
         res.json(team);
-    }else {
-        res.status(204).send();
-    }
+    });
 }
 
 function updateTeam(req, res) {
     var id = req.swagger.params.id.value;
-    var team = req.body;
-    if(db.update(id, team)){
-        res.json({success: true, description: "Team updated!"});
-    }else{
-        res.status(204).send();
-    }
 
+    Team.findById(id, function(err, team) {
+        if(err) {
+            res.send(err);
+        }
+
+        team.name = req.body.name;
+        team.players = req.body.players;
+        team.place = req.body.place;
+
+        team.save(function(err) {
+            if(err) {
+                res.send(err);
+            }
+
+            res.json({success: true, description: "Team updated!"});
+        });
+
+    });
 }
 
 function deleteTeam(req, res) {
     var id = req.swagger.params.id.value;
-    if(db.remove(id)){
-        res.json({success: true, description: "Team deleted!"});
-    }else{
-        res.status(204).send();
-    }
+    Team.findOneAndRemove({ _id: mongoose.Types.ObjectId(id) }, function(err) {
+        if (err) {
+            res.send({success: false, description: err});
+        }
 
+        res.json({success: true, description: "Team deleted!"});
+    });
 }
