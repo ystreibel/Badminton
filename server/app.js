@@ -2,7 +2,7 @@
 
 var SwaggerExpress = require('swagger-express-mw');
 var app = require('express')();
-var connection = require('./api/models/connection.js');
+var connection = require('./api/models/connection');
 module.exports = app; // for testing
 
 var config = {
@@ -20,5 +20,8 @@ SwaggerExpress.create(config, function(err, swaggerExpress) {
 
   if (swaggerExpress.runner.swagger.paths['/teams']) {
     console.log('try this:\ncurl http://127.0.0.1:' + port + '/teams');
+  }
+  if (swaggerExpress.runner.swagger.paths['/matchs']) {
+      console.log('try this:\ncurl http://127.0.0.1:' + port + '/matchs');
   }
 });
