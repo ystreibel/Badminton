@@ -1,5 +1,5 @@
-'use strict;'
-var mongoose = require( 'mongoose' );
+'use strict';
+var mongoose = require('mongoose');
 
 var dbURI = 'mongodb://localhost/Badminton';
 

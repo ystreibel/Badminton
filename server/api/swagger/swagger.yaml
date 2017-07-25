@@ -116,6 +116,104 @@ paths:
           description: Error
           schema:
             $ref: "#/definitions/ErrorResponse"
+  /matchs:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: matchs
+    get:
+      description: Returns 'Matchs' to the caller
+      # used as the method name of the controller
+      operationId: getMatchs
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/MatchsResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    post:
+      description: Create a new match to the list
+      operationId: createMatch
+      parameters:
+        - name: match
+          description: Match properties
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/Match"
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"            
+  /matchs/{id}:
+    x-swagger-router-controller: matchs
+    get:
+      description: Get a match
+      operationId: getMatch
+      parameters:
+        - name: id
+          type: string
+          in: path
+          required: true
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/MatchResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"            
+    put:
+      description: Update a match
+      operationId: updateMatch
+      parameters:
+        - name: id
+          description: Match id
+          type: string
+          in: path
+          required: true
+        - name: match
+          description: Match properties
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/Match"
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    delete:
+      description: Delete a match
+      operationId: deleteMatch
+      parameters:
+        - name: id
+          description: Match id
+          type: string
+          in: path
+          required: true
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"            
   /swagger:
     x-swagger-pipe: swagger_raw
 # complex objects have schema definitions
@@ -141,6 +239,12 @@ definitions:
                 type: string
               isCaptain:
                 type: boolean
+            required:
+              - firstname
+              - lastname
+              - email
+              - phone
+              - isCaptain
         place:
           type: object
           properties:
@@ -158,8 +262,34 @@ definitions:
                       type: number
                     longitude:
                       type: number
+                  required:
+                    - latitude
+                    - longitude
                 category:
                   type: string
+              required:
+                - type
+                - coordinates
+                - category
+            schedule:
+              type: array
+              items:
+                type: object
+                properties:
+                  day:
+                    type: string
+                  start:
+                    type: string
+                  end:
+                    type: string  
+                required:
+                  - day
+                  - start
+                  - end
+          required:
+            - name
+            - location
+            - schedule
     required:
       - name
       - players
@@ -189,6 +319,12 @@ definitions:
                 type: string
               isCaptain:
                 type: boolean
+            required:
+              - firstname
+              - lastname
+              - email
+              - phone
+              - isCaptain
         place:
           type: object
           properties:
@@ -206,8 +342,37 @@ definitions:
                       type: number
                     longitude:
                       type: number
+                  required:
+                    - latitude
+                    - longitude
                 category:
                   type: string
+              required:
+                - type
+                - coordinates
+                - category
+            schedule:
+              type: array
+              items:
+                type: object
+                properties:
+                  _id:
+                    type: string
+                  day:
+                    type: string
+                  start:
+                    type: string
+                  end:
+                    type: string
+                required:
+                - _id
+                - day
+                - start
+                - end
+          required:
+            - name
+            - location
+            - schedule
     required:
       - _id
       - name
@@ -245,6 +410,12 @@ definitions:
                     type: string
                   isCaptain:
                     type: boolean
+                required:
+                  - firstname
+                  - lastname
+                  - email
+                  - phone
+                  - isCaptain
             place:
               type: object
               properties:
@@ -262,8 +433,190 @@ definitions:
                           type: number
                         longitude:
                           type: number
-                category:
+                      required:
+                        - latitude
+                        - longitude
+                    category:
+                      type: string
+                  required:
+                    - type
+                    - coordinates
+                    - category
+                schedule:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      _id:
+                        type: string
+                      day:
+                        type: string
+                      start:
+                        type: string
+                      end:
+                        type: string      
+                    required:
+                      - _id
+                      - day
+                      - start
+                      - end
+              required:
+                - name
+                - location
+                - schedule
+          required:
+            - _id
+            - name
+            - players
+            - place
+  Match:
+    properties:
+        season:
+          type: number
+        gender:
+          type: string
+        division: 
+          type: number
+        pools:
+          type: string
+        day:
+          type: object
+          properties:
+            id: 
+              type: string
+            start_date:
+              type: string
+            end_date:
+              type: string
+          required:
+            - id
+            - start_date
+            - end_date
+        schedule_date:
+          type: string
+        local: 
+          type: string
+        visitor:
+          type: string
+        local_score:
+          type: number
+        visitor_score:
+          type: number
+        base64MatchSheetImage:
+          type: string
+        base64ReceiptImage:
+          type: string
+    required:
+      - season
+      - gender
+      - division
+      - pools
+      - day
+      - local
+      - visitor
+  MatchResponse:
+    properties:
+      _id:
+        type: string
+      season:
+        type: number
+      gender:
+        type: string
+      division: 
+        type: number
+      pools:
+        type: string
+      day:
+        type: object
+        properties:
+          id: 
+            type: string
+          start_date:
+            type: string
+          end_date:
+            type: string
+        required:
+          - id
+          - start_date
+          - end_date
+      schedule_date:
+        type: string
+      local: 
+        type: string
+      visitor:
+        type: string
+      local_score:
+        type: number
+      visitor_score:
+        type: number
+      base64MatchSheetImage:
+        type: string
+      base64ReceiptImage:
+          type: string
+    required:
+      - _id
+      - season
+      - gender
+      - division
+      - pools
+      - day
+      - local
+      - visitor    
+  MatchsResponse:
+    required:
+      - matchs
+    properties:
+      matchs:
+        type: array
+        items:
+          type: object
+          properties:
+            _id:
+              type: string
+            season:
+              type: number
+            gender:
+              type: string
+            division: 
+              type: number
+            pools:
+              type: string
+            day:
+              type: object
+              properties:
+                id: 
                   type: string
+                start_date:
+                  type: string
+                end_date:
+                  type: string
+              required:
+                - id
+                - start_date
+                - end_date
+            schedule_date:
+              type: string
+            local: 
+              type: string
+            visitor:
+              type: string
+            local_score:
+              type: number
+            visitor_score:
+              type: number
+            base64MatchSheetImage:
+              type: string
+            base64ReceiptImage:
+                type: string
+          required:
+            - _id
+            - season
+            - gender
+            - division
+            - pools
+            - day
+            - local
+            - visitor  
   GeneralResponse:
     type: object
     properties:

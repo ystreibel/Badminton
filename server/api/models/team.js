@@ -21,7 +21,12 @@ var TeamSchema = new Schema({
                                             longitude: {type: Number, required: true}
                                         },
                                         category: { type: String, required: true }
-                                    }
+                                    },
+                                    schedule: [{
+                                        day: { type: String, required: true },
+                                        start: { type: String, required: true },
+                                        end: { type: String, required: true }
+                                    }]
                                 }
                             });
 
