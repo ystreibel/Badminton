@@ -1,12 +1,11 @@
 import {Player} from "./player";
-import {Hall} from "./hall";
+import {Place} from "./place";
 
 export class Team {
   constructor(
-    public id?: number,
+    public id?: string,
     public name?: string,
     public players?: Array<Player>,
-    public hall?: Hall,
-    public captain?: number
+    public place?: Place,
   ) {}
 }

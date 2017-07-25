@@ -33,7 +33,7 @@ function createMatch(req, res) {
 
 function getMatch(req, res) {
     var id = req.swagger.params.id.value;
-    Match.find({ _id: mongoose.Types.ObjectId(id) }, function(err, match) {
+    Match.findOne({ _id: mongoose.Types.ObjectId(id) }, function(err, match) {
         if (err) {
             res.send(err);
         }

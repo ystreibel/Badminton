@@ -1,54 +1,85 @@
 {
-  "id": 1,
-  "name": "Sautron",
-  "players": [
-    {
-      "id": 1,
-      "icon": "./assets/mon-equipe/yohann_streibel.jpg",
-      "firstname": "Yohann",
-      "lastname": "Streibel",
-      "email": "ykaribou@gmail.com",
-      "phone": "+33659854200"
-    },
-    {
-      "id": 2,
-      "icon": "./assets/mon-equipe/default.png",
-      "firstname": "Kevin",
-      "lastname": "Richard",
-      "email": "kevin.richard44@gmail.com",
-      "phone": "+33659762332"
-    },
-    {
-      "id": 3,
-      "icon": "./assets/mon-equipe/florian_ledan.jpg",
-      "firstname": "Florian",
-      "lastname": "Ledan",
-      "email": "florian.ledan@sfr.fr",
-      "phone": "+33671416603"
-    },
-    {
-      "id": 4,
-      "icon": "./assets/mon-equipe/default.png",
-      "firstname": "Etienne",
-      "lastname": "Herluison",
-      "email": "etienne.herluison@spie.com",
-      "phone": "+33646786953"
-    }
-  ],
-  "hall": {
-    "id": 1,
-    "name": "Delta",
-    "address": "4 rue de la bourse",
-    "teamId": 1,
-    "schedules": [
+  "_id" : "59774fd66990c079b2da6333",
+  "name" : "Sautron",
+  "place" : {
+    "name" : "Delta",
+    "schedule" : [
       {
-        "id": 1,
-        "day": "Lundi",
-        "start": 11,
-        "end": 14,
-        "hallId": 1
+        "day" : "Lundi",
+        "start" : "12h",
+        "end" : "14h",
+        "_id" : "59774fd66990c079b2da6338"
+      },
+      {
+        "day" : "Lundi",
+        "start" : "18h",
+        "end" : "20h45",
+        "_id" : "59774fd66990c079b2da6337"
+      },
+      {
+        "day" : "Jeudi",
+        "start" : "20h",
+        "end" : "23h",
+        "_id" : "59774fd66990c079b2da6336"
+      },
+      {
+        "day" : "Samedi",
+        "start" : "9h",
+        "end" : "11h",
+        "_id" : "59774fd66990c079b2da6335"
+      },
+      {
+        "day" : "Dimanche",
+        "start" : "14h",
+        "end" : "18h",
+        "_id" : "59774fd66990c079b2da6334"
       }
-    ]
+    ],
+    "location" : {
+      "type" : "Point",
+      "category" : "Stadiums",
+      "coordinates" : {
+        "latitude" : 47.2666268,
+        "longitude" : -1.6820406
+      }
+    }
   },
-  "captain": 1
+  "players" : [
+    {
+      "icon" : "./assets/mon-equipe/yohann_streibel.jpg",
+      "firstname" : "Yohann",
+      "lastname" : "Streibel",
+      "email" : "ykaribou@gmail.com",
+      "phone" : "+33659854200",
+      "isCaptain" : true,
+      "_id" : "59774fd66990c079b2da633c"
+    },
+    {
+      "icon" : "./assets/mon-equipe/default.png",
+      "firstname" : "Kevin",
+      "lastname" : "Richard",
+      "email" : "kevin.richard44@gmail.com",
+      "phone" : "+33659762332",
+      "isCaptain" : false,
+      "_id" : "59774fd66990c079b2da633b"
+    },
+    {
+      "icon" : "./assets/mon-equipe/florian_ledan.jpg",
+      "firstname" : "Florian",
+      "lastname" : "Ledan",
+      "email" : "florian.ledan@sfr.fr",
+      "phone" : "+33671416603",
+      "isCaptain" : false,
+      "_id" : "59774fd66990c079b2da633a"
+    },
+    {
+      "icon" : "./assets/mon-equipe/default.png",
+      "firstname" : "Etienne",
+      "lastname" : "Herluison",
+      "email" : "etienne.herluison@spie.com",
+      "phone" : "+33646786953",
+      "isCaptain" : false,
+      "_id" : "59774fd66990c079b2da6339"
+    }
+  ]
 }

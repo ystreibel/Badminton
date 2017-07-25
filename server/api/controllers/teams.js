@@ -33,7 +33,7 @@ function createTeam(req, res) {
 
 function getTeam(req, res) {
     var id = req.swagger.params.id.value;
-    Team.find({ _id: mongoose.Types.ObjectId(id) }, function(err, team) {
+    Team.findOne({ _id: mongoose.Types.ObjectId(id) }, function(err, team) {
         if (err) {
             res.send(err);
         }

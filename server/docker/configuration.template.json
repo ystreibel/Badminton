@@ -1,0 +1,3 @@
+{
+  "mongoURL": "${BADMINTON_BACKEND_PARAM_MONGOURL}"
+}

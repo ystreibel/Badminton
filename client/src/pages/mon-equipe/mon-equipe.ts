@@ -16,7 +16,6 @@ export class MonEquipePage {
   constructor(public navCtrl: NavController, public teamService: TeamService) {
     teamService.load('Sautron').subscribe(team => {
       this.joueurs = team.players;
-      this.capitaine = team.captain
     },
       err => this.logError(err)
     );

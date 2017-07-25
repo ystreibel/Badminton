@@ -7,7 +7,7 @@ import {Team} from "../models/team";
 @Injectable()
 export class TeamService {
 
-  SERVER_URL = "./assets/data/team.json";
+  SERVER_URL = "http://localhost:10010/api/v1/teams/59774fd66990c079b2da6333";
 
   constructor(public http: Http) {
     console.log('Hello TeamService Provider');
@@ -15,6 +15,8 @@ export class TeamService {
 
   load(name: string): Observable<Team> {
     return this.http.get(`${this.SERVER_URL}`)
-      .map(res => <Team>res.json());
+      .map(res => {
+        return <Team>res.json();
+      });
   }
 }

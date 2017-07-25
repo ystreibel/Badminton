@@ -4,6 +4,5 @@ export class Schedule {
     public day?: string,
     public start?: string,
     public end?: string,
-    public hallId?: number
   ) {}
 }
