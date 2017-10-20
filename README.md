@@ -25,6 +25,7 @@
 - [ ] About add Github link, social media etc.
 
 ## Server
+- [ ] Add JWT Bearer
 - [ ] Add infrastructure
 - [ ] Add proxifying API's
 - [ ] Add push notifications
