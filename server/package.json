@@ -8,17 +8,24 @@
   "license": "",
   "main": "app.js",
   "dependencies": {
+    "bcrypt": "^1.0.3",
+    "colors": "^1.1.2",
     "crypto": "0.0.3",
     "express": "^4.12.3",
+    "jwt-simple": "^0.5.1",
     "mongoose": "^4.11.4",
-    "swagger-express-mw": "^0.1.0"
+    "nconf": "^0.8.4",
+    "passport": "^0.4.0",
+    "passport-jwt": "^3.0.0",
+    "swagger-express-mw": "^0.1.0",
+    "util": "^0.10.3"
   },
   "devDependencies": {
     "should": "^7.1.0",
     "supertest": "^1.0.0"
   },
   "scripts": {
-    "start": "node app.js",
+    "start": "node src/app.js",
     "test": "swagger project test"
   }
 }

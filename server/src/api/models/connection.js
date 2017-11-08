@@ -1,9 +1,11 @@
 'use strict';
 var mongoose = require('mongoose');
+var conf = require('../../configuration.js');
 
-var dbURI = 'mongodb://localhost/Badminton';
+var dbURI = conf.get('mongoURL') + 'Badminton';
+var options = { useMongoClient: true };
 
-mongoose.connect(dbURI, { useMongoClient: true });
+mongoose.connect(dbURI, options);
 
 mongoose.connection.on('connected', function () {
     console.log('Mongoose default connection open to ' + dbURI);

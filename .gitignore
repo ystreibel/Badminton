@@ -34,3 +34,4 @@ Thumbs.db
 UserInterfaceState.xcuserstate
 client/.sourcemaps
 .sourcemaps/
+server/docker/delivery

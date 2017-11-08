@@ -26,4 +26,4 @@ echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 cat /usr/src/app/configuration.json
 echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
 
-node /usr/src/app/server.js
+node /usr/src/app/app.js

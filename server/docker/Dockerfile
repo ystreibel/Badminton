@@ -1,6 +1,7 @@
 FROM node:6.10.1
 
 ENV BADMINTON_BACKEND_PARAM_MONGOURL "mongodb://mongo:27017/"
+ENV BADMINTON_BACKEND_PARAM_SECRET "MySecret"
 
 # Set a working directory
 WORKDIR /usr/src/app

@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 var TeamSchema = new Schema({
                                 name: {type: String, required: true},
                                 players: [{
-                                    icon: String,
+                                    avatar: String,
                                     firstname: { type: String, required: true },
                                     lastname: { type: String, required: true },
                                     email: { type: String, required: true },
